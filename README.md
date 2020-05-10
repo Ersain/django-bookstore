@@ -23,4 +23,4 @@ $ docker-compose up -d
 Go to http://127.0.0.1:8000/
 
 ## Attention
-Unfortunately, the dependencies of the project may be broken and fail to build a wheel while building (I suspect it is due to Pipfile). Thus, it cannot be launched via Docker. I am going to fix this in near feature, pull requests are welcome
+Unfortunately, the dependencies of the project may be broken and fail to build a wheel while building (I suspect it is due to Pipfile). Thus, it cannot be launched via Docker. I am going to fix this in near future, pull requests are welcome
