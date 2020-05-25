@@ -12,19 +12,22 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import socket
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get('DEBUG', default=0))
+DEBUG = int(os.getenv('DEBUG', default=0))
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -173,7 +176,7 @@ ACCOUNT_UNIQUE_EMAIL = True
 DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = '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'
+EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_API_KEY')
 EMAIL_PORT = 25
 EMAIL_USE_TLS = True
 
@@ -194,3 +197,5 @@ if ENVIRONMENT == 'production':
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
+SECURE_SSL_REDIRECT = False
