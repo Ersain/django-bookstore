@@ -4,6 +4,6 @@ django-crispy-forms
 django-allauth
 pillow
 stripe==2.48.*
-django-debug-toolbar==2.2
+django-debug-toolbar==2.2.1
 django-extensions
 python-dotenv==0.13.*
